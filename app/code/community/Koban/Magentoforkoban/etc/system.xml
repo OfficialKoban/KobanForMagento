@@ -1,0 +1,115 @@
+<config>
+	<tabs>
+        <Koban translate="label">
+            <label>Koban</label>
+            <sort_order>150</sort_order>
+        </Koban>
+    </tabs>
+    <sections>
+        <tracking translate="label" module="adminhtml">
+            <label>Paramétrage</label>
+            <tab>Koban</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+			<groups>
+                <api translate="label comment">
+                    <label>Général</label>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[Vous devez d'abord définir ici vos clés <strong>API Koban</strong> ainsi que les informations de connexion. Tout se trouve sous <strong>Paramètres > API</strong> dans votre interface Koban.]]></comment>
+					<fields>
+                        <api translate="label comment">
+                            <label>Clé API</label>
+                            <comment>Votre clé API Koban</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </api>
+						<apiuser translate="label comment">
+                            <label>Clé Utilisateur API</label>
+                            <comment>Votre clé Utilisateur API Koban</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </apiuser>
+						<apizone translate="label comment">
+                            <label>Clé Zone API</label>
+                            <comment>Votre clé Zone Koban</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </apizone>
+						<kobanserver translate="label comment">
+                            <label>URL Serveur Koban</label>
+                            <comment>Entrez ici l'URL de votre serveur Koban</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</kobanserver>
+						<urltracking translate="label comment">
+                            <label>URL Tracking</label>
+                            <comment>Entrez ici l'URL de tracking Koban</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </urltracking>
+					</fields>
+				</api>
+				<forms translate="label comment">
+                    <label>Engagement</label>
+                    <sort_order>80</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[Définissez ici les engagements Koban à associer à votre site Marchand.]]></comment>
+					<fields>
+						<nllp translate="label comment">
+                            <label>Engagement Newsletter</label>
+                            <comment>Définissez ici l'engagement pour une inscription à une newsletter. Il doit contenir un formulaire comportant uniquement un champ EMail</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<source_model>magentoforkoban/landingpage</source_model>
+                        </nllp>
+					</fields>
+				</forms>
+				<catalog>
+					<label>Catalogue</label>
+                    <sort_order>120</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[Paramétrez les liens entre le catalogue Koban et le catalogue Magento]]></comment>
+					<fields>
+						<launchsync translate="label comment">
+                            <label>Synchroniser</label>
+                            <comment>Cliquez ici pour synchroniser les catalogues (dans le sens Magento vers Koban uniquement)</comment>
+                            <frontend_type>button</frontend_type>
+							<frontend_model>magentoforkoban/synccatalog</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </launchsync>
+					</fields>
+				</catalog>
+			</groups>
+		</tracking>
+    </sections>
+</config> 

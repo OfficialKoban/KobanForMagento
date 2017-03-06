@@ -72,6 +72,39 @@ class Koban_MagentoForKoban_Model_Observer {
 		Mage::getModel('magentoforkoban/order')->OrderCancelled($data);
 		Mage::log('Fin évènement Commande annulée', null, 'koban.log');
 	}
+	public function CustomerSaved(Varien_Event_Observer $observer)
+	{
+		if(Mage::registry('customer_save_observer_executed')){
+			return $this; //this method has already been executed once in this request (see comment below)
+		}
+		Mage::log('Début évènement Compte créé ou modifié', null, 'koban.log');
+		$data = $observer->getEvent()->getCustomer();
+		Mage::log($data->debug(), null, "koban.log");
+		if ($data->created_at == $data->updated_at)
+		{
+			Mage::log("Création de compte", null, "koban.log");
+			$res = array();
+			$res["contact_email"] = $data->email;
+			$res["contact_name"] = $data->lastname;
+			$res["contact_firstname"] = $data->firstname;
+			$lp = Mage::getStoreConfig('tracking/forms/nlac',Mage::app()->getStore());
+			Mage::helper('magentoforkoban/KobanTrack')->PostTrack($lp, $res);
+		}
+		else
+		{
+			Mage::log("Modification de compte", null, "koban.log");	
+			Mage::getModel('magentoforkoban/customer')->SaveCustomer($data);
+		}
+		Mage::register('customer_save_observer_executed',true);
+		Mage::log('Fin évènement Compte créé ou modifié', null, 'koban.log');
+	}
+	public function CustomerSavedFromAdmin(Varien_Event_Observer $observer)
+	{
+		Mage::log('Début évènement Compte modifié depuis Admin', null, 'koban.log');
+		$data = $observer->getEvent()->getCustomer();
+		Mage::getModel('magentoforkoban/customer')->SaveCustomer($data);
+		Mage::log('Fin évènement Compte modifié depuis Admin', null, 'koban.log');
+	}
 	public function addOrderAction($observer)
     {
 		$block = $observer->getEvent()->getBlock();

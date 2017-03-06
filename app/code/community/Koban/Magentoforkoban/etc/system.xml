@@ -87,6 +87,16 @@
                             <show_in_store>1</show_in_store>
 							<source_model>magentoforkoban/landingpage</source_model>
                         </nllp>
+						<nlac translate="label comment">
+                            <label>Engagement Création de compte</label>
+                            <comment>Définissez ici l'engagement pour une création de compte. Il doit contenir un formulaire comportant un champ nom, un champ prénom et un champ EMail</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<source_model>magentoforkoban/landingpage</source_model>
+                        </nlac>
 					</fields>
 				</forms>
 				<catalog>

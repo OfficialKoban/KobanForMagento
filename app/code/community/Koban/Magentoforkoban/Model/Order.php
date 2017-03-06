@@ -26,6 +26,7 @@ class Koban_MagentoForKoban_Model_Order {
 		$shippingadrs = $ord->getShippingAddress();
 		
 		$badrs = new stdClass();
+		$badrs->Reference = $billingadrs->entity_id;
 		$badrs->Street = str_replace("\n", ',', $billingadrs->street);
 		Mage::log($ord->debug(), null, 'koban.log');
 		$badrs->City = $billingadrs->city;
@@ -41,6 +42,7 @@ class Koban_MagentoForKoban_Model_Order {
 		$cmd->Status = "PENDING";
 		$cmd->Dateorder = $ord->created_at;
 		$sadrs = new stdClass();
+		$sadrs->Reference = $shippingadrs->entity_id;
 		$sadrs->Street = str_replace("\n", ',', $shippingadrs->street);
 		$sadrs->City = $shippingadrs->city;
 		$sadrs->ZipCode = $shippingadrs->postcode;

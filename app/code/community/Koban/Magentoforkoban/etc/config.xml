@@ -92,6 +92,22 @@
 					</koban_magentoforkoban_model_observer>
 				</observers>
 			</sales_order_item_cancel>
+			<customer_save_commit_after>
+				<observers>
+					<koban_magentoforkoban_model_observer>
+						<class>Koban_Magentoforkoban_Model_Observer</class>
+						<method>CustomerSaved</method>
+					</koban_magentoforkoban_model_observer>
+				</observers>
+			</customer_save_commit_after>
+			<adminhtml_customer_save_after>
+				<observers>
+					<koban_magentoforkoban_model_observer>
+						<class>Koban_Magentoforkoban_Model_Observer</class>
+						<method>CustomerSavedFromAdmin</method>
+					</koban_magentoforkoban_model_observer>
+				</observers>
+			</adminhtml_customer_save_after>
 		</events>
 		<helpers>
 			<magentoforkoban>
